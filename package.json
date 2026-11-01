@@ -1,0 +1,24 @@
+{
+  "name": "case-converter",
+  "version": "1.0.0",
+  "description": "Convert phrases to camel, Pascal, or snake case from the terminal.",
+  "license": "ISC",
+  "author": "",
+  "type": "commonjs",
+  "main": "index.js",
+  "bin": {
+    "case-converter": "index.js"
+  },
+  "engines": {
+    "node": ">=24"
+  },
+  "scripts": {
+    "start": "node index.js",
+    "test": "node scripts/test.cjs",
+    "test:local": "vitest run"
+  },
+  "devDependencies": {
+    "specification-tool": "^0.3.10",
+    "vitest": "^4.1.12"
+  }
+}
