@@ -1,5 +1,7 @@
 # Case Converter
 
+[![Tests](https://github.com/liammclennan/case-converter/actions/workflows/tests.yml/badge.svg?branch=main)](https://github.com/liammclennan/case-converter/actions/workflows/tests.yml)
+
 A terminal program for converting whitespace-separated phrases to camel, Pascal,
 or snake case. Requires Node.js 24 or later.
 
@@ -34,6 +36,9 @@ its verifying tests. Tests execute the real CLI and check output and exit status
 npm run test:local  # Run tests and write test-results/results.json
 npm test           # Run tests, then publish results to Specification Tool
 ```
+
+GitHub Actions runs the full test suite with Node.js 24 on every push to `main`.
+The workflow uses `npm run test:local` and does not require API keys.
 
 For publishing, set `SYSTEM_SPECIFICATION_TOOL_API_KEY` in the environment or in
 the git-ignored `.env` file (see `.env.example`). `npm test` uses the
