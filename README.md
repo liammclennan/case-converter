@@ -26,23 +26,23 @@ first word and capitalizes subsequent initials; Pascal case capitalizes every
 initial. Other letters retain their original case. Snake case lowercases every
 word and inserts underscores. Punctuation is preserved.
 
-## Tests and specification verification
+## Usage 
 
-The tests cover all nine claims in the [Case Converter specification](https://specification-tool.com/api/projects/a38fc0b3-9c00-4461-b73d-94093659f779/nodes/2998ad40-c8ef-4c09-89ed-d88537b09624),
-including its children. Each claim's four-character ID appears in the names of
-its verifying tests. Tests execute the real CLI and check output and exit status.
+```
+Usage: case-converter --to <camel|pascal|snake> "phrase"
 
-```sh
-npm run test:local  # Run tests and write test-results/results.json
-npm test           # Run tests, then publish results to Specification Tool
+Convert a whitespace-separated phrase into a cased string.
+
+Options:
+  --to <format>  Required target format: camel, pascal, or snake.
+  --help, -h     Show this help message.
+
+Examples:
+  case-converter --to camel "The quick brown fox"
+  case-converter --to pascal "The quick brown fox"
+  case-converter --to snake "The quick brown fox"
+
+Quote the phrase to preserve it as one argument. Use -- before a phrase
+that starts with a hyphen. All formats remove whitespace.
 ```
 
-GitHub Actions runs the full test suite with Node.js 24 on every push to `main`.
-The workflow uses `npm run test:local` and does not require API keys.
-
-For publishing, set `SYSTEM_SPECIFICATION_TOOL_API_KEY` in the environment or in
-the git-ignored `.env` file (see `.env.example`). `npm test` uses the
-`specification-tool` npm package, whose executable is named
-`system-specification-tool`, to push the JSON report to the `Case Converter`
-project. It publishes results even if tests fail and exits unsuccessfully if
-either testing or publishing fails. Publishing requires network access.
